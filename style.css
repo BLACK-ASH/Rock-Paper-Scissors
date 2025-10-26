@@ -1,128 +1,61 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
 body {
-    background-image: linear-gradient(to top, rgb(100 100 211), #6fae6f);
+    background: #2A7B9B;
+    background: radial-gradient(circle, rgba(42, 123, 155, 1) 0%, rgba(87, 199, 137, 1) 76%, rgba(114, 83, 237, 1) 100%);
+}
+
+nav{
+    background: #7253edbd;
     color: aliceblue;
-    font-family: "BBH Sans Bartle", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-
-
-}
-
-.container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.container .head {
     text-align: center;
-    font-size: 30px;
-    color: #98cfcf
+    padding: 1rem
 }
 
-.container .head h1 {
-    font-size: 45px;
-    color: #98cfcf
+.button-container{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    padding: 1rem;
+    margin: 1rem;
+    justify-content: center;
+    align-items: center;
 }
 
-.buttons {
-    padding: 50px;
+.button-card{
     display: flex;
     justify-content: center;
-    text-align: end;
-    gap: 22px;
-    height: 180px;
-}
-
-.b1 {
-    background-image: linear-gradient(to right, rgb(207, 104, 104), rgb(50, 50, 39));
-    display: flex;
-    align-items: end;
-    width: 160px;
-    justify-content: center;
-    border-radius: 9px;
-}
-
-.b2 {
-    background-image: linear-gradient(to right, rgb(207, 104, 104), rgb(50, 50, 39));
-    display: flex;
-    align-items: end;
-    width: 160px;
-    justify-content: center;
-    border-radius: 9px;
-}
-
-.b3 {
-    background-image: linear-gradient(to right, rgb(207, 104, 104), rgb(50, 50, 39));
-    display: flex;
-    align-items: end;
-    width: 160px;
-    justify-content: center;
-    border-radius: 9px;
-}
-
-.buttons .b1 h2 {
-    color: #ce9c2d;
-}
-
-.buttons .b2 h2 {
-    color: #ce9c2d;
-}
-
-.buttons .b3 h2 {
-    color: #ce9c2d;
-}
-
-#but1 {
-    cursor: pointer;
-    position: absolute;
-    align-self: center;
-    margin-bottom: 30px;
-    border: 0px;
-    border-radius: 9px;
-}
-
-#but2 {
-    cursor: pointer;
-    position: absolute;
-    align-self: center;
-    margin-bottom: 30px;
-    border: 0px;
-    border-radius: 9px;
-}
-
-#but3 {
-    cursor: pointer;
-    position: absolute;
-    align-self: center;
-    margin-bottom: 30px;
-    border: 0px;
-    border-radius: 9px;
-}
-
-#but1 img {
-    height: 100px;
-    width: 100px;
-}
-
-#but2 img {
-    height: 100px;
-    width: 100px;
-}
-
-#but3 img {
-    height: 100px;
-    width: 100px;
-}
-
-.JS {
-    display: block;
-    border: 4px solid rgb(111, 84, 26);
+    align-items: center;
+    flex-direction: column;
     border-radius: 10px;
-    height: 220px;
-    width: 780px;
-    justify-self: center;
-    padding: 20px;
-    overflow-y: auto;
-    color: darkturquoise;
+}
+
+.color{
+    color: #2A7B9B;
+}
+
+.result{
+    text-align: center;
+}
+
+.win{
+    color: green;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.tie{
+    color: yellow;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.lost{
+    color: red;
+    font-size: 1.5rem;
+    font-weight: 600;
 }

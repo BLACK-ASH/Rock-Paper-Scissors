@@ -1,67 +1,65 @@
-let but1 = document.getElementById("but1");
-let but2 = document.getElementById("but2");
-let but3 = document.getElementById("but3");
+let btnRock = document.getElementById("btn-rock");
+let btnPaper = document.getElementById("btn-paper");
+let btnScissors = document.getElementById("btn-scissors");
+let result = document.querySelector(".result")
 
-but1.addEventListener("click", () => {
-    let rand = ["rock", "paper", "scissors"]
-    let computer = rand[Math.floor(Math.random() * rand.length)];
-    console.log(computer);
-    // but1.value = "rock";
-    if (but1 && computer === "rock") {
-        e = `Your Choice : Rock & Computer Choice : ${computer} > Rock and Rock It's a TIE`
-    }
-    else if (but1 && computer === "scissors") {
-        e = `Your Choice : Rock & Computer Choice : ${computer} > Rock smash Scissors You WIN Computer LOSE`
-    }
-    else if (but1 && computer === "paper") {
-        e = `Your Choice : Rock & Computer Choice : ${computer} > Paper wraps Rock You LOSE Computer Win`
-    }
-    let d = document.createElement("div");
-    d.innerText = e;
-    let JS = document.querySelector(".JS").append(d);
-    d.style.padding = "5px";
-    "<br>"
+// Option For Computer
+const options = ["rock", "paper", "scissors"];
 
+// Utiliy Funtion For Computer Play 
+function computerPlay() {
+    return options[Math.floor(Math.random() * options.length)];
+}
+
+function checkWinner(userChoice, computerChoice) {
+    if (userChoice === computerChoice) {
+        return "tie";
+    } else if (
+        (userChoice === "rock" && computerChoice === "scissors") ||
+        (userChoice === "paper" && computerChoice === "rock") ||
+        (userChoice === "scissors" && computerChoice === "paper")
+    ) {
+        return "win";
+    } else {
+        return "lost";
+    }
+}
+
+// Element Map
+const elementMap = {
+    "tie": `<p class="tie">It's A Tie!</p>`,
+    "win": `<p class="win">You Win!</p>`,
+    "lost": `<p class="lost">You Lost!</p>`
+}
+
+// To Handle User Paper Click
+btnPaper.addEventListener("click", () => {
+    const computerChoice = computerPlay();
+    innerHTML = `<div>
+                    <p><b>Your Choice : paper</b></p>
+                    <p><b>Computer Choice : ${computerChoice}</b></p>
+                     ${elementMap[checkWinner("paper", computerChoice)]}
+                </div>`
+    result.innerHTML = innerHTML;
 })
-but2.addEventListener("click", () => {
-    let rand = ["rock", "paper", "scissors"]
-    let computer = rand[Math.floor(Math.random() * rand.length)];
-    console.log(computer);
-
-    if (but2 && computer === "paper") {
-        e = `Your Choice : Paper & Computer Choice : ${computer} > paper and paper It's a TIE`;
-    }
-    else if (but2 && computer === "rock") {
-        e = `Your Choice : paper & Computer Choice : ${computer} > Paper wrap Rock You WIN Computer LOSE`;
-    }
-    else if (but2 && computer === "scissors") {
-        e = `Your Choice : Paper & Computer Choice : ${computer} > Scissors cut Paper You LOSE Computer Win`;
-    }
-
-    let d = document.createElement("div");
-    d.innerText = e;
-    let JS = document.querySelector(".JS").append(d);
-    d.style.padding = "5px";
-    "<br>"
-
+// To Handle User Rock Click
+btnRock.addEventListener("click", () => {
+    const computerChoice = computerPlay();
+    innerHTML = `<div>
+                    <p><b>Your Choice : rock</b></p>
+                    <p><b>Computer Choice : ${computerChoice}</b></p>
+                     ${elementMap[checkWinner("rock", computerChoice)]}
+                </div>`
+    result.innerHTML = innerHTML;
 })
-but3.addEventListener("click", () => {
-    let rand = ["rock", "paper", "scissors"]
-    let computer = rand[Math.floor(Math.random() * rand.length)];
-    console.log(computer);
-    if (but3 && computer === "scissors") {
-        e = `Your Choice : Scissors & Computer Choice : ${computer} > Scissors and Scissors It's a TIE`;
-    }
-    else if (but3 && computer === "paper") {
-        e = `Your Choice : Scissors & Computer Choice : ${computer} > Scissors cut Paper You WIN Computer LOSE`;
-    }
-    else if (but3 && computer === "rock") {
-        e = `Your Choice : Scissors & Computer Choice : ${computer} > Rock smash Scissors You LOSE Computer Win`;
-    }
-
-    let d = document.createElement("div");
-    d.innerText = e;
-    let JS = document.querySelector(".JS").append(d);
-    d.style.padding = "5px";
-    "<br>"
+// To Handle User Scissor Click
+btnScissors.addEventListener("click", () => {
+    const computerChoice = computerPlay();
+    innerHTML = `<div>
+                    <p><b>Your Choice : scissors</b></p>
+                    <p><b>Computer Choice : ${computerChoice}</b></p>
+                     ${elementMap[checkWinner("scissors", computerChoice)]}
+                  </div>`
+    result.innerHTML = innerHTML;
 })
+
